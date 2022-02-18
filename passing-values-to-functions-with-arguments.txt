@@ -1,0 +1,7 @@
+function functionWithArgs(Para1, Para2){
+
+    console.log(Para1 + Para2);
+
+}
+
+functionWithArgs(3, 2);
