@@ -1,0 +1,10 @@
+const sum = (...args) => {
+
+  let FinalSum=0;
+
+  for(let i=0; i< args.length; i++){
+    FinalSum += args[i];
+  }
+  
+  return FinalSum;
+}
