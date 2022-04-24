@@ -1,0 +1,15 @@
+let myNestedArray = [ //level 1
+  // change code below this line
+  ['unshift', false, 1, 2, 3, 'complex', 'nested'], //level 2
+  [ 
+    ['loop', 'shift', 6, 7, 1000, 'method', 'deep'], //level 3
+    [ 
+      ['concat', false, true, 'deeper', 'spread', 'array'], //level 4
+      [
+        ['deepest', 1, 1, 1, 1, 1] //level 5
+      ]
+    ]
+  ],
+  ['gamer', 'coool', 7, 1, '1', 'depth']
+  // change code above this line
+];
