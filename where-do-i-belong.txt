@@ -1,0 +1,78 @@
+function getIndexToIns(arr, num) 
+{
+  let inputIndex = 0;
+
+  let arrLen = arr.length;
+  let bufferArr = arr;
+
+  //edge case if empty
+  if( arrLen == 0 )
+  {
+
+    return 0;
+
+  }
+
+
+  //bubble sort array
+  for(let i=0; i<arrLen; i++)
+  {
+
+    for(let j=0; j<(arrLen - i - 1); j++)
+    {
+
+
+      if( bufferArr[j] > bufferArr[j+1] )
+      {
+
+
+        let buffer = bufferArr[j];
+        bufferArr[j] = bufferArr[j + 1];
+        bufferArr[j+1] = buffer;
+
+
+      }
+
+
+
+    }
+
+  }
+
+
+
+
+  //deterimes the index that is the right place for num
+  for(let i=0; i<arrLen; i++)
+  {
+
+    
+
+
+    if( bufferArr[i] < num )
+    {
+
+      inputIndex = i + 1;
+
+      //edge case if its last element
+      if( i == arrLen-1)
+      {
+
+        return inputIndex;
+
+      }
+
+
+      continue;
+
+    }
+
+    return inputIndex;
+
+  }
+
+
+  //return num;
+}
+
+getIndexToIns([40, 60], 50);

@@ -1,0 +1,43 @@
+function frankenSplice(arr1, arr2, n) 
+{
+
+  let arr1Len = arr1.length;
+  let arr2Len = arr2.length;
+
+  let outputArr = [];
+
+  //adds first part of arr2
+  for( let i = 0; i<n; i++ )
+  {
+
+    outputArr.push( arr2[i] );
+
+
+  }
+
+
+  //adss arr 1 elements
+  for( let i = 0; i<arr1Len; i++ )
+  {
+
+    outputArr.push( arr1[i] );
+
+
+  }
+
+  //adds last part of arr2
+  for( let i = n; i<arr2Len; i++ )
+  {
+
+    outputArr.push( arr2[i] );
+
+
+  }
+
+  //console.log(outputArr);
+
+
+  return outputArr;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);

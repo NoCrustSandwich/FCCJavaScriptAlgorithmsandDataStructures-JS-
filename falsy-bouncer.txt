@@ -1,0 +1,36 @@
+function bouncer(arr) 
+{
+
+  let arrLen = arr.length;
+  let nonFalsyArr = [];
+
+  for(let i = 0; i<arrLen; i++)
+  {
+
+    if( arr[i] == false || arr[i] == null || arr[i] == 0 || arr[i] == undefined || arr[i] == "" )
+    {
+
+      continue;
+
+    }
+
+
+    if( isNaN(arr[i]) == true && typeof(arr[i]) != "boolean" && typeof(arr[i]) != "string")
+    {
+
+      continue;
+
+    }
+
+
+    nonFalsyArr.push( arr[i] );
+
+  }
+
+
+  //console.log(nonFalsyArr);
+
+  return nonFalsyArr;
+}
+
+bouncer([7, "ate", "", false, 9]);

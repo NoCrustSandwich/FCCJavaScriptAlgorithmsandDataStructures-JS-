@@ -1,0 +1,126 @@
+function mutation(arr) 
+{
+
+  let arr1 = [];
+  let arr2 = [];
+
+  //makes string lowerscase to make sure it sorts properly
+  let str1 = arr[0].toLowerCase();
+  let str2 = arr[1].toLowerCase();
+
+  // creates array of letters used in word 1
+  for( let i = 0; i<str1.length; i++)
+  {
+
+    if( valPresentInArr( arr1 , str1[i] ) == false )
+    {
+
+      arr1.push(str1[i]);
+
+    }
+
+
+  }
+
+
+  // creates array of letters used in word 2
+  for( let i = 0; i<str2.length; i++)
+  {
+
+    if( valPresentInArr( arr2 , str2[i] ) == false )
+    {
+
+      arr2.push(str2[i]);
+
+    }
+
+
+  }
+
+  //sorts the arrays in alphabetical order
+  arr1 = bubbleSortArr(arr1);
+  arr2 = bubbleSortArr(arr2);
+
+
+  //if there is a value in arr2 that does not exist in arr1 then return false
+  for( let i = 0; i < arr2.length; i++)
+  {
+
+    if( valPresentInArr( arr1, arr2[i] ) == false )
+    {
+
+      return false;
+
+    }
+
+  }
+
+
+  //console.log(arr1);
+  //console.log(arr2);
+
+
+  //else return false
+  return true;
+
+
+}
+
+mutation(["hello", "hey"]);
+
+
+
+//if value is present returns true
+function valPresentInArr( arr , val)
+{
+
+
+
+  for( let i = 0; i<arr.length; i++)
+  {
+
+    if( arr[i] == val)
+    {
+
+      return true;
+
+    }
+
+  }
+
+  return false;
+
+}
+
+
+
+//sorts the arr in ascending order, bubble sort
+function bubbleSortArr( arr )
+{
+
+  for( let i = 0; i < arr.length; i++)
+  {
+
+    for( let j = 0; j < ( arr.length - i - 1 ); j++)
+    {
+
+      if( arr[j] > arr[j+1] )
+      {
+
+        let buffer = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j+1] = buffer;
+
+
+      }
+
+
+    }
+
+
+  }
+
+  return arr;
+
+
+}

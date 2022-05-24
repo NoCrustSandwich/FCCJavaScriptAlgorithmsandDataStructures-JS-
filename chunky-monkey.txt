@@ -1,0 +1,54 @@
+function chunkArrayInGroups(arr, size) 
+{
+
+  let outputArr = [];
+  let bufferArr = [];
+
+  let arrLen = arr.length;
+  let beginIndex = 0;
+  let endIndex = size;
+
+  while( beginIndex < arrLen )
+  {
+
+    //if it does not fit in perfectly
+    if( endIndex > arrLen - 1 )
+    {
+
+      for(let i = beginIndex; i<arrLen; i++)
+      {
+
+        bufferArr.push( arr[i] );
+
+      }
+
+      outputArr.push(bufferArr);
+
+      beginIndex += size;
+      endIndex += size;
+
+      continue;
+
+
+    }
+
+
+
+    
+
+
+    outputArr.push( arr.slice(beginIndex, endIndex) );
+
+    beginIndex += size;
+    endIndex += size;
+
+  }
+
+
+  console.log(outputArr);
+
+  return outputArr;
+
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);

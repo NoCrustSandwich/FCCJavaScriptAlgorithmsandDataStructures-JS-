@@ -1,0 +1,39 @@
+function titleCase(str) 
+{
+
+  //makes everything lowercase
+  let strArr = str.toLowerCase().split(" ");
+
+//upercase first letters
+  for(let i = 0; i<strArr.length; i++)
+  {
+
+    strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].substring(1);
+
+  }
+
+
+  //capitilize "The" and "Of"
+  for(let i = 0; i<strArr.length; i++)
+  {
+
+    if( strArr[i]=="Of" || strArr[i]=="The" )
+    {
+
+      strArr[i].toUpperCase();
+
+    }
+
+  }
+
+
+  //output string
+  let outputStr = strArr.join(" ");
+
+    //console.log(outputStr);
+
+  return outputStr;
+
+}
+
+titleCase("I'm a little tea pot");
