@@ -1,0 +1,10 @@
+function Dog()
+{
+
+  this.name = "Lux";
+  this.color = "black";
+  this.numLegs = 4;
+
+
+
+};
