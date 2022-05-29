@@ -1,0 +1,39 @@
+function sentensify(str) {
+  // Only change code below this line
+
+  let strSize = str.length;
+
+  let arr1 = str.split(",");
+  let arr2 = str.split(".");
+  let arr3 = str.split("-");
+
+if(str.includes(","))
+{
+
+  return arr1.join(" ");
+
+}
+
+if(str.includes("."))
+{
+
+  return arr2.join(" ");
+
+}
+
+if(str.includes("-"))
+{
+
+  return arr3.join(" ");
+
+}
+
+
+return str;
+  //arr1=arr1.split("-");
+  //arr1=arr1.split(",");
+
+  // Only change code above this line
+}
+
+sentensify("May-the-force-be-with-you");
