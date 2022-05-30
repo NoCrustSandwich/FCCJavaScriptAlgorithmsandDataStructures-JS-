@@ -1,0 +1,41 @@
+function sumAll(arr) {
+
+  //Initialization of variables
+  let minNum;
+  let maxNum;
+
+  //Determines min and max numbers
+  if(arr[0] < arr[1])
+  {
+
+    minNum = arr[0];
+    maxNum = arr[1];
+
+  }
+  else
+  {
+
+    minNum = arr[1];
+    maxNum = arr[0];
+
+  }
+
+  let totalSum = 0;
+
+  //incrementally adds all the values together between the min and max numbers
+  while( minNum <= maxNum )
+  {
+
+    totalSum += minNum;
+
+    minNum++;
+
+  }
+
+
+  //console.log(totalSum);
+
+  return totalSum;
+}
+
+sumAll([1, 4]);

@@ -1,0 +1,28 @@
+// Only change code below this line
+function urlSlug(title) {
+
+  let lowerTitle = title.toLowerCase();
+
+  let arr1 = lowerTitle.split(" ");
+
+
+  let outputArr = [];
+
+  for(let i = 0 ; i<arr1.length; i++)
+  {
+
+    if(arr1[i] != "")
+    {
+
+      outputArr.push(arr1[i]);
+
+    }
+
+
+  }
+
+  return outputArr.join("-");
+
+}
+// Only change code above this line
+urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone");

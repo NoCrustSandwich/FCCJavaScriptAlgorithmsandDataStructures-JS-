@@ -1,0 +1,66 @@
+function diffArray(arr1, arr2) {
+  const newArr = [];
+
+  
+  //checks each item in arr1, in arr2 and newArr pushes on if not present in either
+  for(let i = 0; i<arr1.length ;i++)
+  {
+
+
+  
+    if( !(itemFound(arr1[i], arr2)) && !(itemFound(arr1[i], newArr)))
+    {
+
+      newArr.push(arr1[i]);
+
+    }
+
+
+  }
+
+
+    //checks each item in arr2, in arr1 and newArr pushes on if not present in either
+  for(let i = 0; i<arr2.length ;i++)
+  {
+
+
+  
+    if( !(itemFound(arr2[i], arr1)) && !(itemFound(arr2[i], newArr)))
+    {
+
+      newArr.push(arr2[i]);
+
+    }
+
+
+  }
+
+
+  return newArr;
+
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+
+
+//returns true if val exists in arr
+function itemFound( val , arr )
+{
+
+  for(let i = 0; i<arr.length ;i++)
+  {
+
+    if( arr[i] == val )
+    {
+
+      return true;
+
+    }
+
+  }
+
+  return false;
+
+}

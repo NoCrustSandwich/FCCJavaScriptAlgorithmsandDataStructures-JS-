@@ -1,0 +1,27 @@
+function destroyer(arr) {
+
+  console.log(arguments[0]);
+  console.log(arguments[1]);
+  console.log(arguments[2]);
+
+  let newArr = [];
+
+  for(let i =0; i<arguments[0].length; i++)
+  {
+
+    //Checks if the arr element mathces one of the last two arguments and if not pushes it into the new array
+    if( !(arguments[0][i] == arguments[1]||arguments[0][i] == arguments[2] ||arguments[0][i] == arguments[3] ||arguments[0][i] == arguments[4] ||arguments[0][i] == arguments[5] ||arguments[0][i] == arguments[6] ||arguments[0][i] == arguments[7] ||arguments[0][i] == arguments[8] ) )
+    {
+
+      newArr.push(arguments[0][i]);
+
+    }
+
+  }
+
+  return newArr;
+
+ 
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
