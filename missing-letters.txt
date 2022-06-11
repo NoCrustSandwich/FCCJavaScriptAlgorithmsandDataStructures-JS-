@@ -1,0 +1,61 @@
+function fearNotLetter(str) 
+{
+
+  let alphabetStr = "abcdefghijklmnopqrstuvwxyz";
+
+  let alphabetArr = alphabetStr.split("");
+
+  let strArr = str.split("");
+
+  let startIndex;
+
+
+
+  //if all letter are present return undefined
+  if( strArr.length == alphabetStr.length )
+  {
+
+    return undefined;
+
+  }
+
+  //Loop determines start index in the alphabetStr Array
+  for( let i = 0; i < alphabetArr.length; i++)
+  {
+
+    if( strArr[0] == alphabetArr[i] )
+    {
+
+      startIndex = i;
+      break;
+
+    }
+
+
+  }
+
+
+
+  //determines and returns the missing letter
+  for( let i = startIndex,  j = 0 ; i < alphabetArr.length; i++, j++ )
+  {
+
+    if( strArr[j] != alphabetArr[i] )
+    {
+
+      return alphabetArr[i];
+
+    }
+
+
+  }
+
+  //alphabetArr
+
+
+  //edge case just return undefined
+  return undefined;
+
+}
+
+fearNotLetter("abce");
