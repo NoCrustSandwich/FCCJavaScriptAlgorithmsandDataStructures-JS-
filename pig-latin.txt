@@ -1,0 +1,88 @@
+function translatePigLatin( str ) 
+{
+
+  //Varible used as conditional to determine consonant cluster
+  //to move to the back
+  let vowelFound = false;
+
+  //used to hold str transformed into array of chars and the
+  //array index, and then the str that will hold it
+  let strArr = [];
+  let strFinal;
+
+  //used to hold str consonant cluster, and then the str
+  // that will hold it
+  let conClusterArr = [];
+  let conClusterStr;
+
+
+  //transformed str into array of chars
+  strArr = str.split("");
+
+   
+
+  //loops through array until vowel is found, or goes out of
+  //range
+  for( let i = 0; i< strArr.length; i++ )
+  {
+
+    //checks for vowels and ends loop if found
+    if( strArr[ i ] == 'a' || strArr[ i ] == 'e' || strArr[ i ] == 'i' || strArr[ i ] == 'o' || strArr[ i ] == 'u')
+    {
+
+      break;
+
+    }
+    else
+    {
+
+      //pushes the consonant cluster into an array
+      conClusterArr.push( strArr.shift() );
+
+      //decrement index to compensate for the shift()
+      i--;
+      
+
+    } 
+   
+
+    
+
+     
+
+  }
+
+  
+
+  //Transforms arrays into strings
+  conClusterStr = conClusterArr.join("");
+  strFinal = strArr.join("");
+
+
+  //Adjust word into pig latin, based on its two rules
+  if( conClusterStr == "" )
+  {
+
+    strFinal = strFinal + "way";
+
+
+
+  }
+  else
+  {
+
+
+    strFinal = strFinal + conClusterStr + "ay";
+
+
+  }
+
+
+  
+  
+
+  return strFinal;
+
+}
+
+translatePigLatin("consonant");
