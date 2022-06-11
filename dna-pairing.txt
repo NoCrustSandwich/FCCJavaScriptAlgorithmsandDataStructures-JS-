@@ -1,0 +1,86 @@
+function pairElement(str) 
+{
+
+  //variables used for the function
+  let strArr = str.split("");
+  let finalStrArr = makeArray( 2, strArr.length );
+  
+
+  
+
+  //Loops and creates the final 2d array using given data
+  for( let i = 0; i < strArr.length; i++ )
+  {
+
+    //fills first spot of the buffer array with given protien
+    finalStrArr[i][0] = strArr[i];
+
+    
+
+    //Adds second protein based on first protien
+    if( finalStrArr[i][0] == "A" )
+    {
+
+      finalStrArr[i][1] = "T";
+
+    }
+    else if( finalStrArr[i][0] == "T" )
+    {
+
+      finalStrArr[i][1] = "A";
+
+    }
+    else if( finalStrArr[i][0] == "C" )
+    {
+
+      finalStrArr[i][1] = "G";
+
+    }
+    else if( finalStrArr[i][0] == "G" )
+    {
+
+      finalStrArr[i][1] = "C";
+
+    }
+    else
+    {
+
+      finalStrArr[i][1] = "Exeption case";
+
+    }
+    
+    
+
+   
+
+
+   
+
+  }
+
+
+  console.log( finalStrArr );
+  //returns final 2d array
+  return finalStrArr;
+
+}
+
+//makes a 2d array based on input sizes
+function makeArray( d1, d2 ) 
+{
+
+    var arr = [];
+
+    for( let i = 0; i < d2; i++ ) 
+    {
+
+        arr.push( new Array( d1 ) );
+
+    }
+
+    return arr;
+
+}
+
+pairElement("GCG");
+pairElement("ATCGA");
