@@ -1,0 +1,166 @@
+function whatIsInAName(collection, source) {
+  const finalArr = [];
+  // Only change code below this line
+
+  //let colSize = collection.length;
+
+  //Varible used to check if object has all required keys
+  let hasFullProperty;
+
+  //Varible used to check if object keys all have same values
+  let allSameValues;
+
+
+//Loops through source object(test object) and collection[i](input objects) 
+//checks if object has all required keys 
+  for( let i in collection )
+  {
+
+    
+      hasFullProperty = true;
+
+      for( let j in collection[i] )
+      {
+
+        
+        
+        
+
+        for( let k in source)
+        {
+
+          
+          //if collection[i] does not contain a key in source, means doesn't contain
+          //the required keys
+          if( ( !(collection[i].hasOwnProperty(k)) )  )
+          {
+
+              hasFullProperty = false;
+
+
+          }
+
+        
+
+
+        }
+
+        
+        
+      }
+      
+
+      //Loops through source object(test object) and collection[i](input objects) 
+      //checks if object keys all have same values 
+      if( hasFullProperty )
+      {
+
+        allSameValues = true;
+
+        for( let j in collection[i] )
+        {
+
+          
+
+          for( let k in source )
+          {
+
+            //If at same keys, not same values, allsame values is et to false
+            if( j == k && collection[i][j] != source[k] )
+            {
+
+              allSameValues = false;
+
+              
+
+            }
+
+
+
+          }
+
+
+
+
+
+        }
+
+              
+
+      }
+
+     
+      //If object collection[i] has all required keys, all required keys have same values
+      // and obj is not already present in the final return array, push the object onto the
+      //final return array.
+      if( hasFullProperty && allSameValues && !( objIsPresent( finalArr, collection[i] ) ) )
+      {
+
+        finalArr.push(collection[i]);
+
+      }
+
+
+  }
+  
+
+  
+
+  //console.log(finalArr);
+
+  //returns the final return Array
+  // Only change code above this line
+  return finalArr;
+
+}
+
+
+//returns true if object is alreafy present in array (To prevent duplicates)
+function objIsPresent( arr, obj )
+{
+
+  for(let i in arr)
+  {
+
+    if( arr[i] == obj )
+    {
+
+      return true;
+
+    }
+
+
+  }
+
+
+  return false;
+
+
+
+}
+
+function removeSmaller( arr, num )
+{
+
+  for( let i in arr )
+  {
+
+    if( arr[i].length != num.length )
+    {
+
+      arr = arr.splice( i, 1 );
+
+    }
+
+
+  }
+
+  console.log(arr);
+
+  return arr;
+
+}
+
+
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })
