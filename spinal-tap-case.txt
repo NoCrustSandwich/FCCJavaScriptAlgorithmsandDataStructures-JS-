@@ -1,0 +1,63 @@
+function spinalCase( str ) 
+{
+
+  //Varible used as a change-able buffer
+  let finalStr = str;
+
+  //varible used to hold string changed to array of chars
+  let strArr = [];
+
+  
+
+  //Replaces all spaces and Underscores with dashes
+  finalStr = finalStr.replaceAll( " ", "-" );
+  finalStr = finalStr.replaceAll( "_", "-" );
+  
+
+  
+
+  //Insert a dash where a uppercase follows a lowercase
+  finalStr = finalStr.replace(/([A-Z])/g, '-$&');
+
+
+  //Splits the string into an array of characters
+  strArr = finalStr.split("");
+
+
+  //Removes the added dash at the start if it was inserted
+  if( strArr[0] == "-" )
+  {
+
+    //removes the first element
+    strArr.shift();
+ 
+  }
+
+
+  //joins the array back into a str and remove the commas
+  finalStr = strArr.join();
+  finalStr = finalStr.replaceAll( ",", "" );
+
+  //Removes duplicated dashes
+  finalStr = finalStr.replaceAll( "--", "-" );
+
+  
+
+
+  
+
+  //lowercases the final string
+  finalStr = finalStr.toLowerCase();
+
+  
+
+  return finalStr;
+
+}
+
+spinalCase('This Is Spinal Tap');
+spinalCase("thisIsSpinalTap");
+spinalCase("The_Andy_Griffith_Show");
+spinalCase("Teletubbies say Eh-oh");
+spinalCase("AllThe-small Things");
+
