@@ -1,0 +1,86 @@
+
+
+
+function sumFibs(num) 
+{
+
+  //gets full fibonnaci numbers arr, size of which is num
+  let arr = fibonacciArr( num );
+
+
+  //Varible will hold the final sum of odd fibonacci numbers
+  let finalSum = 0;
+
+
+
+  //adds all odd fibonnacci numbers within arr to finalSumArr
+  for( let i = 0; i < arr.length ; i++ )
+  {
+
+    if( arr[i]%2 == 1 )
+    {
+
+      finalSum += arr[i];
+
+    }
+
+  }
+
+
+
+  //returns sum of all odd fibonnacci numbers
+  return finalSum;
+
+
+}
+
+
+//Returns all fibonacci values in an array smaller equal to
+//the input num
+function fibonacciArr( num )
+{
+
+
+
+  if( num == 0 )
+  {
+
+    return [];
+
+  }
+  else if( num == 1 )
+  {
+
+    return [ 1, 1 ];
+
+  }
+  else
+  {
+
+    let arr = [ 1, 1 ];
+
+    let i = 2;
+
+    while( (arr[i-2] + arr[i-1]) <= num )
+    {
+
+      arr.push( (arr[i-2] + arr[i-1]) );
+
+      i++;
+
+    }
+
+    return arr;
+
+  }
+
+
+
+
+}
+
+
+
+console.log( sumFibs(0) );
+
+

@@ -1,0 +1,74 @@
+function uniteUnique(arrg) 
+{
+
+  let arr = Array.from(arguments);
+  //final array to return
+  let finalArr = [];
+
+  
+
+  //Loops through the arrays input
+  for( let i in arr )
+  {
+
+    
+    //loops through elements in each array
+    for( let j in arr[i] )
+    {
+
+      
+
+      if( !( isPresent( finalArr, arr[i][j] ) ) )
+      {
+
+        
+        //pushes it forward
+        finalArr.push( arr[i][j] );
+        
+
+      }
+
+
+    }
+
+
+  }
+
+
+  //console.log(finalArr);
+
+  return finalArr;
+
+}
+
+
+
+
+//returns true if a value is present in an array
+function isPresent( arr, val )
+{
+
+  
+
+  //loops through array to find the same value in it
+  for( let i = 0; i<arr.length ; i++ )
+  {
+
+    if( arr[i] == val )
+    {
+
+      return true;
+
+    }
+
+
+  }
+
+
+  return false;
+
+}
+
+
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);

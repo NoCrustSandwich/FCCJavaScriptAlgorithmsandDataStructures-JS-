@@ -1,0 +1,53 @@
+function sumPrimes(num) 
+{
+
+  let sumOfPrime = 0;
+
+  let isPrime;
+
+  //loops through all prime numbers and adds them to the sum
+  //of prime
+  while( num > 1 )
+  {
+
+    isPrime = true;
+
+    //checks if this number is a prime number
+    for( let i = 2; i < num; i++ )
+    {
+
+      if( num % i == 0)
+      {
+
+        isPrime = false;
+
+      }
+
+
+    }
+
+    if( isPrime == true )
+    {
+
+      
+
+      sumOfPrime += num;
+
+    }
+
+
+    //Decrements num
+    num--;
+
+  }
+  
+
+
+
+
+
+  return sumOfPrime;
+
+}
+
+console.log(sumPrimes(977));

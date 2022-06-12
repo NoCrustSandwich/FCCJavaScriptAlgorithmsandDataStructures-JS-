@@ -1,0 +1,18 @@
+function convertHTML(str) 
+{
+
+  let finalStr = str;
+
+  //translates to html string
+  finalStr = finalStr.replaceAll( "&", "&amp;" );
+  finalStr = finalStr.replaceAll( "<", "&lt;" );
+  finalStr = finalStr.replaceAll( ">", "&gt;" );
+  finalStr = finalStr.replaceAll( '"', "&quot;" );
+  finalStr = finalStr.replaceAll( "'", "&apos;" );
+
+
+  return finalStr;
+
+}
+
+convertHTML("Dolce & Gabbana");
