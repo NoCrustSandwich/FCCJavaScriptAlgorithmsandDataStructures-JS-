@@ -1,0 +1,391 @@
+function smallestCommons(arr) 
+{
+
+  let smaller;
+  let bigger;
+  let finalLCM;
+
+  let finalDivArr = [];
+
+  let divArr = [];
+
+  let arrMultiples = [];
+
+  //finds smallest value
+  if( arr[0] < arr[1] )
+  {
+
+    smaller = arr[0];
+    bigger = arr[1];
+
+  }
+  else if( arr[0] > arr[1] )
+  {
+
+    smaller = arr[1];
+    bigger = arr[0];
+
+
+  }
+  else // if its the same return actual thing
+  {
+
+    return arr[0];
+
+  }
+
+
+  //all multiples needed
+  for( let i = smaller; i <= bigger; i++ )
+  {
+
+    arrMultiples.push( i );
+
+  }
+
+  //removes divisibles, and replaces them with null
+  for( let i = arrMultiples.length - 1 ; i >= 0; i-- )
+  {
+
+    if( arrMultiples[i] == null )
+    {
+
+      continue;
+
+    }
+
+    for(let j in arrMultiples )
+    {
+
+      if( arrMultiples[j] == null )
+      {
+
+        continue;
+
+      }
+
+      if( ( arrMultiples[i] % arrMultiples[j] ) == 0 && (arrMultiples[i] != arrMultiples[j]) )
+      {
+
+        arrMultiples[j] = null;
+
+      }
+
+
+    }
+
+
+  }
+
+
+  //Removes the nulls and creates a new array
+  let newArr = [];
+
+  for( let i in arrMultiples )
+  {
+
+    if( arrMultiples[i] != null )
+    {
+
+      newArr.push( arrMultiples[i] );
+
+    }
+
+  }
+
+
+
+
+
+
+
+  //all divisor arrays
+  for( let i in newArr )
+  {
+
+
+    divArr.push( arrDivisors( newArr[i] ) );
+
+
+  }
+  
+
+
+
+
+  //adds to big array
+  for( let i in divArr )
+  {
+
+
+    for( let j in divArr[i] )
+    {
+
+
+      if( !(isPresent( finalDivArr, divArr[i][j] )) )
+      {
+
+        finalDivArr.push(divArr[i][j]);
+
+      }
+      
+
+
+    }
+
+    
+ 
+
+
+  }
+
+
+
+
+
+
+  //final Arr
+  let finalArr = [];
+
+  finalArr.push( newArr );
+  finalArr.push( divArr );
+
+
+
+  while( finalArr[0].length > 1 )
+  {
+
+    finalArr = reduceLCMArr( finalArr );
+
+  }
+
+
+  //LCM final return
+  finalLCM = finalArr[0][0];
+
+
+  console.log( finalLCM );
+
+  
+
+
+  return finalLCM;
+
+}
+
+//reduces final array to LCM
+function reduceLCMArr( finalArr )
+{
+
+
+  if( finalArr[0].length > 1 )
+  {
+
+    //Retrives the elements and their divisors
+
+    let elementA = finalArr[0].shift();
+
+    let elementADivs = finalArr[1].shift();
+
+    let elementB = finalArr[0].shift();
+
+    let elementBDivs = finalArr[1].shift();
+
+    let finalGCD = 0;
+
+    let finalLCM;
+
+    
+
+
+    //Determining GCD
+
+    for( let i in elementADivs )
+    {
+
+      for( let j in elementBDivs )
+      {
+
+        if( ( elementADivs[i] == elementBDivs[j] ) && ( elementADivs[i] > finalGCD ) )
+        {
+
+          finalGCD = elementADivs[i];
+
+        }
+
+
+      }
+
+
+    }
+
+    //determines finalLCM
+    finalLCM = ( Math.abs( elementA * elementB ) ) / ( finalGCD );
+
+
+    //pushes the simpliefied LCM
+    finalArr[0].push( finalLCM );
+
+
+    //pushes final divisors
+    finalArr[1].push( arrDivisors( finalLCM ) );
+
+
+  }
+
+
+  //returns final updated arr
+  return finalArr;
+
+
+
+
+}
+
+
+
+
+//returns multiple of arr values
+function multipleArr( arr )
+{
+
+
+
+  let finalMultiple = arr[0];
+
+  for( let i = 1; i < arr.length; i++)
+  {
+
+    finalMultiple *= arr[i];
+
+
+  }
+
+  return finalMultiple;
+
+
+}
+
+
+
+
+//returns true if a value is present in an array
+function isPresent( arr, val )
+{
+
+  
+
+  //loops through array to find the same value in it
+  for( let i = 0; i<arr.length ; i++ )
+  {
+
+    if( arr[i] == val )
+    {
+
+      return true;
+
+    }
+
+
+  }
+
+
+  return false;
+
+}
+
+
+
+
+
+//returns an array of all divisors
+function arrDivisors( val )
+{
+
+  let finalArr = [];
+  let counter = val;
+
+  while( counter > 0 )
+  {
+
+    if( val%counter == 0 )
+    {
+
+      finalArr.push(counter);
+
+    }
+
+
+    counter--;
+  }
+
+
+  return finalArr;
+
+
+}
+
+
+
+
+
+
+
+
+//array of prime numbers
+function arrPrimes( num ) 
+{
+
+  
+
+  let arr = [];
+
+  let isPrime;
+
+  //loops through all prime numbers and adds them to the sum
+  //of prime
+  while( num > 1 )
+  {
+
+    isPrime = true;
+
+    //checks if this number is a prime number
+    for( let i = 2; i < num; i++ )
+    {
+
+      if( num % i == 0)
+      {
+
+        isPrime = false;
+
+      }
+
+
+    }
+
+    if( isPrime == true )
+    {
+
+      
+
+      arr.push( num );
+
+    }
+
+
+    //Decrements num
+    num--;
+
+  }
+  
+
+
+  return arr;
+
+}
+
+
+
+
+
+//smallestCommons( [ 23, 18 ] );
