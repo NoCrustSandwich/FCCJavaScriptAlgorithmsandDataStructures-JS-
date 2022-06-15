@@ -1,0 +1,65 @@
+function addTogether() 
+{
+
+  const [ first, second ] = arguments;
+
+  for(let i in arguments)
+  {
+
+    if( typeof(arguments[i]) != 'number' )
+    {
+
+      return undefined;
+
+    }
+
+
+  }
+
+
+
+  if( arguments.length == 2 )
+  {
+
+    return (arguments[0] + arguments[1]);
+
+  }
+  else
+  {
+
+
+    function addSecond( second ) 
+    {
+
+
+      if( typeof(second) != 'number' )
+      {
+
+        return undefined;
+
+      }
+      else
+      {
+
+         return first + second;
+
+      }
+
+
+       
+    
+
+    }
+
+    return addSecond;
+
+  }
+
+
+
+  
+
+
+}
+
+addTogether( 2, 3 );

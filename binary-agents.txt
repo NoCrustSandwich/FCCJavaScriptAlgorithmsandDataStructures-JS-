@@ -1,0 +1,29 @@
+function binaryAgent(str) 
+{
+
+  let strArr = str.split(" ");
+
+  let letterArr = [];
+
+  //parseInt returns ACSI values of the letters which then get translated with string.fromCharCode
+  for( let i in strArr )
+  {
+
+    letterArr.push( String.fromCharCode(parseInt(strArr[i], 2)) );
+
+  }
+
+  let finalStr = letterArr.join();
+
+  //removes the ","
+  finalStr = finalStr.replaceAll(",", "");
+
+
+  console.log(finalStr);
+
+  return finalStr;
+
+
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");

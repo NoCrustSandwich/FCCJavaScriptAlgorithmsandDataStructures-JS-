@@ -1,0 +1,69 @@
+function steamrollArray(arr) 
+{
+
+  let isString = false;
+  let isNum
+
+  let arrStr = arr.toString();
+
+  arrStr.replace(",,", ",");
+
+
+
+
+  let finalArr = [];
+
+  let newFinalArr = [];
+
+
+  finalArr = arrStr.split(",");
+
+  for( let i in finalArr )
+  {
+
+    if(finalArr[i] == '[object Object]' )
+    {
+
+      newFinalArr.push( {} );
+
+      continue;
+
+    }
+
+
+    if( finalArr[i] != "" )
+    {
+
+      
+      if( isNaN( finalArr[i] ) )
+      {
+
+        newFinalArr.push( finalArr[i] );
+
+      }
+      else
+      {
+
+        newFinalArr.push( parseInt(finalArr[i]) );
+
+      }
+
+      
+
+    }
+
+
+  }
+
+
+
+
+
+  console.log(newFinalArr);
+  return newFinalArr;
+
+}
+
+steamrollArray([1, [2], [3, [[4]]]])
+
+
